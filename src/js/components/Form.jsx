@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";
 import { addArticle } from "../actions/index";
+
 function mapDispatchToProps(dispatch) {
     return {
         addArticle: article => dispatch(addArticle(article))
     };
 }
 class ConnectedForm extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             title: ""
         };
@@ -47,6 +48,7 @@ class ConnectedForm extends Component {
         );
     }
 }
+
 const Form = connect(null, mapDispatchToProps)(ConnectedForm);
 
 export default Form;
